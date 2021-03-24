@@ -18,9 +18,6 @@ export default class Modal extends HTMLElement{
         this.jsModal = document.querySelector(".header-left")
         console.log(this.jsModal.innerHTML)
         
-        
-        
-        
 
         this.modal.innerHTML = `
             <style>
@@ -46,7 +43,8 @@ export default class Modal extends HTMLElement{
             </div>
         `
     }
-
+    //cycle de vie custum element
+    //lors de du rendu 
     connectedCallback(){
         console.log(this.modal.querySelector('#element'))
         // changer l'argument element avec l'id ou la classe correspondante
@@ -57,6 +55,14 @@ export default class Modal extends HTMLElement{
             //le code ici 
         })
     }
+    //lorsque le composant est demonte
+    disconnetedCallback(){
+        this.modal.querySelector('#element').removeEventListener('click')
+    }
+
+
+
+}
     
    
-}
+
