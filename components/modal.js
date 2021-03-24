@@ -18,12 +18,8 @@ export default class Modal extends HTMLElement{
         this.jsModal = document.querySelector(".header-left")
         console.log(this.jsModal.innerHTML)
         
-        // changer l'argument element avec l'id ou la classe correspondante
-        this.modal.querySelector("element").addEventListener('click', ()=>{
-            // fonction de fermeture de lka boite 
-            //code de test this.style.display = "none";
-            //le code ici 
-        })
+        
+        
         
 
         this.modal.innerHTML = `
@@ -45,10 +41,22 @@ export default class Modal extends HTMLElement{
                         list-style : none;
                     }
             </style>
-            <div>
+            <div id = "element">
                 ${this.jsModal.innerHTML}
             </div>
         `
     }
+
+    connectedCallback(){
+        console.log(this.modal.querySelector('#element'))
+        // changer l'argument element avec l'id ou la classe correspondante
+        this.modal.querySelector('#element').addEventListener('click', ()=>{
+            // fonction de fermeture de lka boite 
+            //code de test 
+            this.style.display = "none";
+            //le code ici 
+        })
+    }
+    
    
 }
