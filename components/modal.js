@@ -12,13 +12,17 @@ export default class Modal extends HTMLElement{
 
         //Shadow DOM
         this.modal = this.attachShadow({ mode : 'open'})
+
+        
         
         //contenu de la boite modal
         //recuperation des items 
         this.jsModal = document.querySelector(".header-left")
         console.log(this.jsModal.innerHTML)
-        
 
+        
+        
+        
         this.modal.innerHTML = `
             <style>
                 div{
@@ -43,21 +47,28 @@ export default class Modal extends HTMLElement{
             </div>
         `
     }
+    
     //cycle de vie custum element
     //lors de du rendu 
     connectedCallback(){
-        console.log(this.modal.querySelector('#element'))
+        //initialisation de l'element 
+        this.visible = this.modal.querySelector('#element')
+        console.log(this.visible)
+        
         // changer l'argument element avec l'id ou la classe correspondante
-        this.modal.querySelector('#element').addEventListener('click', ()=>{
-            // fonction de fermeture de lka boite 
+        
+        this.visible.addEventListener('click', ()=>{
+
+            // fonction de fermeture de la boite modal 
             //code de test 
-            this.style.display = "none";
+            this.remove()
+            this.style.display = "none"
             //le code ici 
         })
     }
     //lorsque le composant est demonte
     disconnetedCallback(){
-        this.modal.querySelector('#element').removeEventListener('click')
+        
     }
 
 
