@@ -19,7 +19,11 @@ export default class Modal extends HTMLElement{
         console.log(this.jsModal.innerHTML)
         
         
-        
+        this.modal.addEventListener('click', ()=>{
+            // fonction de fermeture de lka boite 
+            //code de test this.style.display = "none";
+            //le code ici 
+        })
         
 
         this.modal.innerHTML = `
